@@ -217,9 +217,9 @@ impl Minefield {
     }
 
     pub fn get_square_mut(&mut self, x: u16, y: u16) -> Result<&mut Square, &'static str> {
-        if x > self.width {
+        if x >= self.width {
             return Err("X is higher than width");
-        } else if y > self.height {
+        } else if y >= self.height {
             return Err("Y is higher than height");
         } else {
             return Ok(&mut self.grid[y as usize * self.width as usize + x as usize]);
@@ -227,9 +227,9 @@ impl Minefield {
     }
 
     pub fn get_square(&self, x: u16, y: u16) -> Result<&Square, &'static str> {
-        if x > self.width {
+        if x >= self.width {
             return Err("X is higher than width");
-        } else if y > self.height {
+        } else if y >= self.height {
             return Err("Y is higher than height");
         } else {
             return Ok(&self.grid[y as usize * self.width as usize + x as usize]);
